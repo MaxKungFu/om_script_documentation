@@ -2,5 +2,5 @@
 
 1. [Введение](getting-started.md)
 2. [Ссылки на модели](links.md)
-3. [Оглавление](contents.md)
+3. [Содержание](contents.md)
 4. [Примеры](example.md)
