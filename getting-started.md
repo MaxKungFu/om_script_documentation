@@ -34,7 +34,7 @@ print(a * b); // Выводим результат произведения зн
 
 Вывод будет следующим:
 
-![](https://https://github.com/MaxKungFu/om_script_documentation/blob/main/pictures/contentExample.png)
+![](./pictures/contentExample.png)
 
 Для создания и написания скриптов, нужно перейти в главном меню приложения в пункт меню: 
 Macros/Максроы > Scripts/Скрипты
