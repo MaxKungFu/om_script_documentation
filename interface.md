@@ -1,7 +1,7 @@
 # Интренфейсы Scripts API с пояснениями:
 
 ##Интерфейс Cell:
-```
+```ts
 interface Cell {
     setValue(value: number | string | null);
 
@@ -25,9 +25,8 @@ interface Cell {
 }
 ```
 ***
-
 ##Интерфейс Cells:
-```
+```ts
 interface Cells {
     all(): Cell[];
 
@@ -44,7 +43,7 @@ interface Cells {
 ```
 ***
 ##Интерфейс Label:
-```
+```ts
 interface Label {
     longId(): number;
 
@@ -61,7 +60,7 @@ interface Label {
 ```
 ***
 ##Интерфейс LabelsGroup:
-```
+```ts
 interface LabelsGroup {
     all(): Label[];
 
@@ -72,7 +71,7 @@ interface LabelsGroup {
 ```
 ***
 ##Интерфейс Labels:
-```
+```ts
 interface Labels {
     start(): number;
 
@@ -89,7 +88,7 @@ interface Labels {
 ```
 ***
 ##Интерфейс GridRangeChunk:
-```
+```ts
 interface GridRangeChunk {
     cells(): Cells;
 
@@ -100,7 +99,7 @@ interface GridRangeChunk {
 ```
 ***
 ##Интерфейс GridRange:
-```
+```ts
 interface GridRange {
     rowStart(): number;
 
@@ -117,7 +116,7 @@ interface GridRange {
 ```
 ***
 ##Интерфейс GridDimension:
-```
+```ts
 interface GridDimension
 {
     getDimensionEntity(): EntityInfo;
@@ -125,7 +124,7 @@ interface GridDimension
 ```
 ***
 ##Интерфейс GridDefinitionInfo:
-```
+```ts
 interface GridDefinitionInfo
 {
     getPageSelectors(): GridPageSelector[];
@@ -137,7 +136,7 @@ interface GridDefinitionInfo
 ```
 ***
 ##Интерфейс Grid:
-```
+```ts
 interface Grid {
     range(rowStart?: number, rowCount?: number, columnStart?: number, columnCount?: number): GridRange;
 
@@ -154,7 +153,7 @@ interface Grid {
 ```
 ***
 ##Интерфейс ExportResult:
-```
+```ts
 interface ExportResult {
     mergeToExternalExcelSheet(toFile: string, toSheet: string, fromSheet?: string): ExportResult
 
@@ -163,7 +162,7 @@ interface ExportResult {
 ```
 ***
 ##Интерфейс Exporter:
-```
+```ts
 interface Exporter {
     setEncoding(encoding: string): Exporter;
 
@@ -196,7 +195,7 @@ interface Exporter {
 ```
 ***
 ##Интерфейс Pivot:
-```
+```ts
 interface Pivot {
     create(): Grid;
 
@@ -211,7 +210,7 @@ interface Pivot {
 ```
 ***
 ##Интерфейс NumericElementsCreator:
-```
+```ts
 interface NumericElementsCreator {
     setCount(count: number): NumericElementsCreator;
 
@@ -230,14 +229,14 @@ interface NumericElementsCreator {
 ```
 ***
 ##Интерфейс ElementsCreator:
-```
+```ts
 interface ElementsCreator {
     numeric(): NumericElementsCreator;
 }
 ```
 ***
 ##Интерфейс ElementsDeleter:
-```
+```ts
 interface ElementsDeleter {
     appendIdentifier(identifier: number): ElementsDeleter;
 
@@ -246,7 +245,7 @@ interface ElementsDeleter {
 ```
 ***
 ##Интерфейс ElementsReorder:
-```
+```ts
 interface ElementsReorder {
     append(longId: number, relativeLongId: number, position: string): ElementsReorder;
 
@@ -259,7 +258,7 @@ interface ElementsReorder {
 ```
 ***
 ##Интерфейс Tab:
-```
+```ts
 interface Tab {
     pivot(viewName?: string): Pivot;
 
@@ -276,7 +275,7 @@ interface Tab {
 ```
 ***
 ##Интерфейс Environment:
-```
+```ts
 interface Environment {
     load(name: string): Environment;
 
@@ -287,7 +286,7 @@ interface Environment {
 ```
 ***
 ##Интерфейс CubeCell:
-```
+```ts
 interface CubeCell{
     definitions(): number[];
 
@@ -300,7 +299,7 @@ interface CubeCell{
 ```
 ***
 ##Интерфейс CubeCellSelector:
-```
+```ts
 interface CubeCellSelector{
     getCubeInfo(): CubeInfo;
 
@@ -314,7 +313,7 @@ interface CubeCellSelector{
 ```
 ***
 ##Интерфейс CubeCellSelectorBuilder:
-```
+```ts
 interface CubeCellSelectorBuilder {
     setFormula(formula: string): this;
 
@@ -323,14 +322,14 @@ interface CubeCellSelectorBuilder {
 ```
 ***
 ##Интерфейс CubeCellUpdater:
-```
+```ts
 interface CubeCellUpdater{
     getCount(): number;
 }
 ```
 ***
 ##Интерфейс CubeCellUpdaterBuilder:
-```
+```ts
 interface CubeCellUpdaterBuilder {
     setConditionFormula(formula: string): this;
 
@@ -341,7 +340,7 @@ interface CubeCellUpdaterBuilder {
 ```
 ***
 ##Интерфейс CubeFormatInfo:
-```
+```ts
 interface CubeFormatInfo {
     getFormatTypeEntity(): EntityInfo;
 
@@ -350,7 +349,7 @@ interface CubeFormatInfo {
 ```
 ***
 ##Интерфейс CubeInfo:
-```
+```ts
 interface CubeInfo extends EntityInfo {
     getFormula(): string | null;
 
@@ -361,7 +360,7 @@ interface CubeInfo extends EntityInfo {
 ```
 ***
 ##Интерфейс MulticubeTab:
-```
+```ts
 interface MulticubeTab extends Tab {
     cleanCellsData(cubesIdentifiers?: number[]): MulticubeTab;
 
@@ -374,21 +373,21 @@ interface MulticubeTab extends Tab {
 ```
 ***
 ##Интерфейс MulticubesTab:
-```
+```ts
 interface MulticubesTab extends Tab {
     open(name: string): MulticubeTab;
 }
 ```
 ***
 ##Интерфейс Multicubes:
-```
+```ts
 interface Multicubes {
     multicubesTab(): MulticubesTab;
 }
 ```
 ***
 ##Интерфейс Times:
-```
+```ts
 interface Times {
     optionsTab(): Tab
 
@@ -399,21 +398,21 @@ interface Times {
 ```
 ***
 ##Интерфейс VersionsTab:
-```
+```ts
 interface VersionsTab {
     copyVersion(from: string, to: string): any;
 }
 ```
 ***
 ##Интерфейс Versions:
-```
+```ts
 interface Versions {
     versionsTab(): VersionsTab
 }
 ```
 ***
 ##Интерфейс CSVParams:
-```
+```ts
 interface CSVParams {
     setDelimiter(delimiter: string): CSVParams;
 
@@ -434,7 +433,7 @@ interface CSVParams {
 ```
 ***
 ##Интерфейс CubeCellSelectorBuilder:
-```
+```ts
 interface CubeCellSelectorBuilder {
     setFormula(formula: string): this;
 
@@ -443,7 +442,7 @@ interface CubeCellSelectorBuilder {
 ```
 ***
 ##Интерфейс Importer:
-```
+```ts
 interface Importer {
     csv(): CSVParams;
 
@@ -458,7 +457,7 @@ interface Importer {
 ```
 ***
 ##Интерфейс ListImporter:
-```
+```ts
 interface ListImporter extends Importer {
     setFilePath(path: string): ListImporter;
 
@@ -477,7 +476,7 @@ interface ListImporter extends Importer {
 ```
 ***
 ##Интерфейс ListTab:
-```
+```ts
 interface ListTab extends Tab {
     listSubsetTab(): ListSubsetsTab;
 
@@ -486,28 +485,28 @@ interface ListTab extends Tab {
 ```
 ***
 ##Интерфейс ListSubsetsTab:
-```
+```ts
 interface ListSubsetsTab extends Tab {
     listTab(): ListTab;
 }
 ```
 ***
 ##Интерфейс ListsTab:
-```
+```ts
 interface ListsTab extends Tab {
     open(name: string): ListTab;
 }
 ```
 ***
 ##Интерфейс Lists:
-```
+```ts
 interface Lists {
     listsTab(): ListsTab
 }
 ```
 ***
 ##Интерфейс CellBuffer:
-```
+```ts
 interface CellBuffer {
     set(cell: Cell | CubeCell, value: number | string | null): CellBuffer;
 
@@ -520,7 +519,7 @@ interface CellBuffer {
 ```
 ***
 ##Интерфейс RequestManager:
-```
+```ts
 interface RequestManager {
     log(message: string, print?: boolean): RequestManager;
 
@@ -531,7 +530,7 @@ interface RequestManager {
 ```
 ***
 ##Интерфейс UserInfo:
-```
+```ts
 interface UserInfo {
     getEntity(): EntityInfo;
 
@@ -546,7 +545,7 @@ interface UserInfo {
 ```
 ***
 ##Интерфейс ModelInfo:
-```
+```ts
 interface ModelInfo {
     id(): number;
 
@@ -565,7 +564,7 @@ interface ModelInfo {
 ```
 ***
 ##Интерфейс ResultInfo:
-```
+```ts
 interface ResultInfo {
     addFileHash(hash: string): ResultInfo
 }
@@ -573,14 +572,14 @@ interface ResultInfo {
 ```
 ***
 ##Интерфейс EntityInfo:
-```
+```ts
 interface EntityInfo extends Label {
     // уточнить у Николая, должно ли в данном месте быть просто наследование
 }
 ```
 ***
 ##Интерфейс EntitiesInfo:
-```
+```ts
 interface EntitiesInfo {
     get(longId: number): EntityInfo | null;
 
@@ -589,7 +588,7 @@ interface EntitiesInfo {
 ```
 ***
 ##Интерфейс CopyData:
-```
+```ts
 interface CopyData {
     setSourceLongId(longId: number): CopyData;
 
@@ -608,7 +607,7 @@ interface CopyData {
 ```
 ***
 ##Интерфейс Common:
-```
+```ts
 interface Common {
     createCellBuffer(): CellBuffer;
 
@@ -627,7 +626,7 @@ interface Common {
 ```
 ***
 ##Интерфейс FileMeta:
-```
+```ts
 interface FileMeta {
     type: string;
     path: string;
@@ -641,7 +640,7 @@ interface FileMeta {
 ```
 ***
 ##Интерфейс Filesystem:
-```
+```ts
 interface Filesystem {
     has(path: string): boolean;
 
@@ -680,7 +679,7 @@ interface Filesystem {
 ```
 ***
 ##Интерфейс PathObj:
-```
+```ts
 interface PathObj {
     getSystem(): Filesystem;
 
@@ -689,14 +688,14 @@ interface PathObj {
 ```
 ***
 ##Интерфейс BaseAdapter:
-```
+```ts
 interface BaseAdapter {
     load(): Filesystem;
 }
 ```
 ***
 ##Интерфейс FTPAdapter:
-```
+```ts
 interface FTPAdapter extends BaseAdapter {
     setHost(host: string): FTPAdapter;
 
@@ -737,7 +736,7 @@ interface FTPAdapter extends BaseAdapter {
 ```
 ***
 ##Интерфейс CsvReader:
-```
+```ts
 interface CsvReader {
     params(): CSVParams;
 
@@ -752,7 +751,7 @@ interface CsvReader {
 ```
 ***
 ##Интерфейс CsvWriter:
-```
+```ts
 interface CsvWriter {
     params(): CSVParams;
 
@@ -770,7 +769,7 @@ interface CsvWriter {
 ```
 ***
 ##Интерфейс BaseConverter:
-```
+```ts
 interface BaseConverter {
     setSource(path: string): this;
 
@@ -779,21 +778,21 @@ interface BaseConverter {
 ```
 ***
 ##Интерфейс ExcelToCsvConverter:
-```
+```ts
 interface ExcelToCsvConverter extends BaseConverter {
     setSheetIdentifier(identifier: string | number): this;
 }
 ```
 ***
 ##Интерфейс ConverterManager:
-```
+```ts
 interface ConverterManager {
     excelToCsv(): ExcelToCsvConverter
 }
 ```
 ***
 ##Интерфейс FilesDataManager:
-```
+```ts
 interface FilesDataManager {
     csvWriter(): CsvWriter;
 
@@ -804,7 +803,7 @@ interface FilesDataManager {
 ```
 ***
 ##Интерфейс Filesystems:
-```
+```ts
 interface Filesystems {
     ftp(): FTPAdapter;
 
@@ -817,21 +816,21 @@ interface Filesystems {
 ```
 ***
 ##Интерфейс OptimizationRequestTab:
-```
+```ts
 interface OptimizationRequestTab extends Tab {
     run(name: string): { success: boolean, error: undefined | string };
 }
 ```
 ***
 ##Интерфейс Optimization:
-```
+```ts
 interface Optimization {
     optimizationRequestsTab(): OptimizationRequestTab
 }
 ```
 ***
 ##Интерфейс SqlQueryResult:
-```
+```ts
 interface SqlQueryResult {
     count(): number;
 
@@ -852,21 +851,21 @@ interface SqlQueryResult {
 ```
 ***
 ##Интерфейс SqlQueryBuilder:
-```
+```ts
 interface SqlQueryBuilder {
     execute(sql: string, bindings?: object): SqlQueryResult;
 }
 ```
 ***
 ##Интерфейс SqlConnection:
-```
+```ts
 interface SqlConnection {
     qb(): SqlQueryBuilder;
 }
 ```
 ***
 ##Интерфейс SqlConnectorBuilder:
-```
+```ts
 interface SqlConnectorBuilder {
     setHost(value: string): this;
 
@@ -888,7 +887,7 @@ interface SqlConnectorBuilder {
 ```
 ***
 ##Интерфейс SqlBulkCopyResult:
-```
+```ts
 interface SqlBulkCopyResult {
     hasErrors(): boolean;
 
@@ -901,7 +900,7 @@ interface SqlBulkCopyResult {
 ```
 ***
 ##Интерфейс SqlBulkCopyBuilder:
-```
+```ts
 interface SqlBulkCopyBuilder {
     /**
      * -S
@@ -1096,7 +1095,7 @@ interface SqlBulkCopyBuilder {
 ```
 ***
 ##Mongodb и его интерфейсы:
-```
+```ts
 declare namespace Mongodb {
 
     interface CollectionCreator {
@@ -1219,7 +1218,7 @@ declare namespace Mongodb {
 ```
 ***
 ##Http и его интерфейсы:
-```
+```ts
 declare namespace Http {
 
     interface Params {
@@ -1466,7 +1465,7 @@ declare namespace Http {
 ```
 ***
 ##Интерфейс Connectors:
-```
+```ts
 interface Connectors {
     mysql(): SqlConnectorBuilder;
 
@@ -1483,7 +1482,7 @@ interface Connectors {
 ```
 ***
 ##Интерфейс OM:
-```
+```ts
 interface OM {
     readonly common: Common;
     readonly environment: Environment;
