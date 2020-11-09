@@ -1,6 +1,6 @@
 # Интренфейсы Scripts API с пояснениями:
 
-##Интерфейс Cell:
+## Интерфейс Cell:
 ```ts
 interface Cell {
     setValue(value: number | string | null);
@@ -25,7 +25,7 @@ interface Cell {
 }
 ```
 ***
-##Интерфейс Cells:
+## Интерфейс Cells:
 ```ts
 interface Cells {
     all(): Cell[];
@@ -42,7 +42,7 @@ interface Cells {
 }
 ```
 ***
-##Интерфейс Label:
+## Интерфейс Label:
 ```ts
 interface Label {
     longId(): number;
@@ -59,7 +59,7 @@ interface Label {
 }
 ```
 ***
-##Интерфейс LabelsGroup:
+## Интерфейс LabelsGroup:
 ```ts
 interface LabelsGroup {
     all(): Label[];
@@ -70,7 +70,7 @@ interface LabelsGroup {
 }
 ```
 ***
-##Интерфейс Labels:
+## Интерфейс Labels:
 ```ts
 interface Labels {
     start(): number;
@@ -87,7 +87,7 @@ interface Labels {
 }
 ```
 ***
-##Интерфейс GridRangeChunk:
+## Интерфейс GridRangeChunk:
 ```ts
 interface GridRangeChunk {
     cells(): Cells;
@@ -98,7 +98,7 @@ interface GridRangeChunk {
 }
 ```
 ***
-##Интерфейс GridRange:
+## Интерфейс GridRange:
 ```ts
 interface GridRange {
     rowStart(): number;
@@ -115,7 +115,7 @@ interface GridRange {
 }
 ```
 ***
-##Интерфейс GridDimension:
+## Интерфейс GridDimension:
 ```ts
 interface GridDimension
 {
@@ -123,7 +123,7 @@ interface GridDimension
 }
 ```
 ***
-##Интерфейс GridDefinitionInfo:
+## Интерфейс GridDefinitionInfo:
 ```ts
 interface GridDefinitionInfo
 {
@@ -135,7 +135,7 @@ interface GridDefinitionInfo
 }
 ```
 ***
-##Интерфейс Grid:
+## Интерфейс Grid:
 ```ts
 interface Grid {
     range(rowStart?: number, rowCount?: number, columnStart?: number, columnCount?: number): GridRange;
@@ -152,7 +152,7 @@ interface Grid {
 }
 ```
 ***
-##Интерфейс ExportResult:
+## Интерфейс ExportResult:
 ```ts
 interface ExportResult {
     mergeToExternalExcelSheet(toFile: string, toSheet: string, fromSheet?: string): ExportResult
@@ -161,7 +161,7 @@ interface ExportResult {
 }
 ```
 ***
-##Интерфейс Exporter:
+## Интерфейс Exporter:
 ```ts
 interface Exporter {
     setEncoding(encoding: string): Exporter;
@@ -194,7 +194,7 @@ interface Exporter {
 }
 ```
 ***
-##Интерфейс Pivot:
+## Интерфейс Pivot:
 ```ts
 interface Pivot {
     create(): Grid;
@@ -209,7 +209,7 @@ interface Pivot {
 }
 ```
 ***
-##Интерфейс NumericElementsCreator:
+## Интерфейс NumericElementsCreator:
 ```ts
 interface NumericElementsCreator {
     setCount(count: number): NumericElementsCreator;
@@ -228,14 +228,14 @@ interface NumericElementsCreator {
 }
 ```
 ***
-##Интерфейс ElementsCreator:
+## Интерфейс ElementsCreator:
 ```ts
 interface ElementsCreator {
     numeric(): NumericElementsCreator;
 }
 ```
 ***
-##Интерфейс ElementsDeleter:
+## Интерфейс ElementsDeleter:
 ```ts
 interface ElementsDeleter {
     appendIdentifier(identifier: number): ElementsDeleter;
@@ -244,7 +244,7 @@ interface ElementsDeleter {
 }
 ```
 ***
-##Интерфейс ElementsReorder:
+## Интерфейс ElementsReorder:
 ```ts
 interface ElementsReorder {
     append(longId: number, relativeLongId: number, position: string): ElementsReorder;
@@ -257,7 +257,7 @@ interface ElementsReorder {
 }
 ```
 ***
-##Интерфейс Tab:
+## Интерфейс Tab:
 ```ts
 interface Tab {
     pivot(viewName?: string): Pivot;
@@ -274,7 +274,7 @@ interface Tab {
 }
 ```
 ***
-##Интерфейс Environment:
+## Интерфейс Environment:
 ```ts
 interface Environment {
     load(name: string): Environment;
@@ -285,7 +285,7 @@ interface Environment {
 }
 ```
 ***
-##Интерфейс CubeCell:
+## Интерфейс CubeCell:
 ```ts
 interface CubeCell{
     definitions(): number[];
@@ -298,7 +298,7 @@ interface CubeCell{
 }
 ```
 ***
-##Интерфейс CubeCellSelector:
+## Интерфейс CubeCellSelector:
 ```ts
 interface CubeCellSelector{
     getCubeInfo(): CubeInfo;
@@ -312,7 +312,7 @@ interface CubeCellSelector{
 }
 ```
 ***
-##Интерфейс CubeCellSelectorBuilder:
+## Интерфейс CubeCellSelectorBuilder:
 ```ts
 interface CubeCellSelectorBuilder {
     setFormula(formula: string): this;
@@ -321,14 +321,14 @@ interface CubeCellSelectorBuilder {
 }
 ```
 ***
-##Интерфейс CubeCellUpdater:
+## Интерфейс CubeCellUpdater:
 ```ts
 interface CubeCellUpdater{
     getCount(): number;
 }
 ```
 ***
-##Интерфейс CubeCellUpdaterBuilder:
+## Интерфейс CubeCellUpdaterBuilder:
 ```ts
 interface CubeCellUpdaterBuilder {
     setConditionFormula(formula: string): this;
@@ -339,7 +339,7 @@ interface CubeCellUpdaterBuilder {
 }
 ```
 ***
-##Интерфейс CubeFormatInfo:
+## Интерфейс CubeFormatInfo:
 ```ts
 interface CubeFormatInfo {
     getFormatTypeEntity(): EntityInfo;
@@ -348,7 +348,7 @@ interface CubeFormatInfo {
 }
 ```
 ***
-##Интерфейс CubeInfo:
+## Интерфейс CubeInfo:
 ```ts
 interface CubeInfo extends EntityInfo {
     getFormula(): string | null;
@@ -359,7 +359,7 @@ interface CubeInfo extends EntityInfo {
 }
 ```
 ***
-##Интерфейс MulticubeTab:
+## Интерфейс MulticubeTab:
 ```ts
 interface MulticubeTab extends Tab {
     cleanCellsData(cubesIdentifiers?: number[]): MulticubeTab;
@@ -372,21 +372,21 @@ interface MulticubeTab extends Tab {
 }
 ```
 ***
-##Интерфейс MulticubesTab:
+## Интерфейс MulticubesTab:
 ```ts
 interface MulticubesTab extends Tab {
     open(name: string): MulticubeTab;
 }
 ```
 ***
-##Интерфейс Multicubes:
+## Интерфейс Multicubes:
 ```ts
 interface Multicubes {
     multicubesTab(): MulticubesTab;
 }
 ```
 ***
-##Интерфейс Times:
+## Интерфейс Times:
 ```ts
 interface Times {
     optionsTab(): Tab
@@ -397,21 +397,21 @@ interface Times {
 }
 ```
 ***
-##Интерфейс VersionsTab:
+## Интерфейс VersionsTab:
 ```ts
 interface VersionsTab {
     copyVersion(from: string, to: string): any;
 }
 ```
 ***
-##Интерфейс Versions:
+## Интерфейс Versions:
 ```ts
 interface Versions {
     versionsTab(): VersionsTab
 }
 ```
 ***
-##Интерфейс CSVParams:
+## Интерфейс CSVParams:
 ```ts
 interface CSVParams {
     setDelimiter(delimiter: string): CSVParams;
@@ -432,7 +432,7 @@ interface CSVParams {
 }
 ```
 ***
-##Интерфейс CubeCellSelectorBuilder:
+## Интерфейс CubeCellSelectorBuilder:
 ```ts
 interface CubeCellSelectorBuilder {
     setFormula(formula: string): this;
@@ -441,7 +441,7 @@ interface CubeCellSelectorBuilder {
 }
 ```
 ***
-##Интерфейс Importer:
+## Интерфейс Importer:
 ```ts
 interface Importer {
     csv(): CSVParams;
@@ -456,7 +456,7 @@ interface Importer {
 }
 ```
 ***
-##Интерфейс ListImporter:
+## Интерфейс ListImporter:
 ```ts
 interface ListImporter extends Importer {
     setFilePath(path: string): ListImporter;
@@ -475,7 +475,7 @@ interface ListImporter extends Importer {
 }
 ```
 ***
-##Интерфейс ListTab:
+## Интерфейс ListTab:
 ```ts
 interface ListTab extends Tab {
     listSubsetTab(): ListSubsetsTab;
@@ -484,28 +484,28 @@ interface ListTab extends Tab {
 }
 ```
 ***
-##Интерфейс ListSubsetsTab:
+## Интерфейс ListSubsetsTab:
 ```ts
 interface ListSubsetsTab extends Tab {
     listTab(): ListTab;
 }
 ```
 ***
-##Интерфейс ListsTab:
+## Интерфейс ListsTab:
 ```ts
 interface ListsTab extends Tab {
     open(name: string): ListTab;
 }
 ```
 ***
-##Интерфейс Lists:
+## Интерфейс Lists:
 ```ts
 interface Lists {
     listsTab(): ListsTab
 }
 ```
 ***
-##Интерфейс CellBuffer:
+## Интерфейс CellBuffer:
 ```ts
 interface CellBuffer {
     set(cell: Cell | CubeCell, value: number | string | null): CellBuffer;
@@ -518,7 +518,7 @@ interface CellBuffer {
 }
 ```
 ***
-##Интерфейс RequestManager:
+## Интерфейс RequestManager:
 ```ts
 interface RequestManager {
     log(message: string, print?: boolean): RequestManager;
@@ -529,7 +529,7 @@ interface RequestManager {
 }
 ```
 ***
-##Интерфейс UserInfo:
+## Интерфейс UserInfo:
 ```ts
 interface UserInfo {
     getEntity(): EntityInfo;
@@ -544,7 +544,7 @@ interface UserInfo {
 }
 ```
 ***
-##Интерфейс ModelInfo:
+## Интерфейс ModelInfo:
 ```ts
 interface ModelInfo {
     id(): number;
@@ -563,7 +563,7 @@ interface ModelInfo {
 }
 ```
 ***
-##Интерфейс ResultInfo:
+## Интерфейс ResultInfo:
 ```ts
 interface ResultInfo {
     addFileHash(hash: string): ResultInfo
@@ -571,14 +571,14 @@ interface ResultInfo {
 
 ```
 ***
-##Интерфейс EntityInfo:
+## Интерфейс EntityInfo:
 ```ts
 interface EntityInfo extends Label {
     // уточнить у Николая, должно ли в данном месте быть просто наследование
 }
 ```
 ***
-##Интерфейс EntitiesInfo:
+## Интерфейс EntitiesInfo:
 ```ts
 interface EntitiesInfo {
     get(longId: number): EntityInfo | null;
@@ -587,7 +587,7 @@ interface EntitiesInfo {
 }
 ```
 ***
-##Интерфейс CopyData:
+## Интерфейс CopyData:
 ```ts
 interface CopyData {
     setSourceLongId(longId: number): CopyData;
@@ -606,7 +606,7 @@ interface CopyData {
 }
 ```
 ***
-##Интерфейс Common:
+## Интерфейс Common:
 ```ts
 interface Common {
     createCellBuffer(): CellBuffer;
@@ -625,7 +625,7 @@ interface Common {
 }
 ```
 ***
-##Интерфейс FileMeta:
+## Интерфейс FileMeta:
 ```ts
 interface FileMeta {
     type: string;
@@ -639,7 +639,7 @@ interface FileMeta {
 }
 ```
 ***
-##Интерфейс Filesystem:
+## Интерфейс Filesystem:
 ```ts
 interface Filesystem {
     has(path: string): boolean;
@@ -678,7 +678,7 @@ interface Filesystem {
 }
 ```
 ***
-##Интерфейс PathObj:
+## Интерфейс PathObj:
 ```ts
 interface PathObj {
     getSystem(): Filesystem;
@@ -687,14 +687,14 @@ interface PathObj {
 }
 ```
 ***
-##Интерфейс BaseAdapter:
+## Интерфейс BaseAdapter:
 ```ts
 interface BaseAdapter {
     load(): Filesystem;
 }
 ```
 ***
-##Интерфейс FTPAdapter:
+## Интерфейс FTPAdapter:
 ```ts
 interface FTPAdapter extends BaseAdapter {
     setHost(host: string): FTPAdapter;
@@ -735,7 +735,7 @@ interface FTPAdapter extends BaseAdapter {
 }
 ```
 ***
-##Интерфейс CsvReader:
+## Интерфейс CsvReader:
 ```ts
 interface CsvReader {
     params(): CSVParams;
@@ -750,7 +750,7 @@ interface CsvReader {
 }
 ```
 ***
-##Интерфейс CsvWriter:
+## Интерфейс CsvWriter:
 ```ts
 interface CsvWriter {
     params(): CSVParams;
@@ -768,7 +768,7 @@ interface CsvWriter {
 }
 ```
 ***
-##Интерфейс BaseConverter:
+## Интерфейс BaseConverter:
 ```ts
 interface BaseConverter {
     setSource(path: string): this;
@@ -777,21 +777,21 @@ interface BaseConverter {
 }
 ```
 ***
-##Интерфейс ExcelToCsvConverter:
+## Интерфейс ExcelToCsvConverter:
 ```ts
 interface ExcelToCsvConverter extends BaseConverter {
     setSheetIdentifier(identifier: string | number): this;
 }
 ```
 ***
-##Интерфейс ConverterManager:
+## Интерфейс ConverterManager:
 ```ts
 interface ConverterManager {
     excelToCsv(): ExcelToCsvConverter
 }
 ```
 ***
-##Интерфейс FilesDataManager:
+## Интерфейс FilesDataManager:
 ```ts
 interface FilesDataManager {
     csvWriter(): CsvWriter;
@@ -802,7 +802,7 @@ interface FilesDataManager {
 }
 ```
 ***
-##Интерфейс Filesystems:
+## Интерфейс Filesystems:
 ```ts
 interface Filesystems {
     ftp(): FTPAdapter;
@@ -815,21 +815,21 @@ interface Filesystems {
 }
 ```
 ***
-##Интерфейс OptimizationRequestTab:
+## Интерфейс OptimizationRequestTab:
 ```ts
 interface OptimizationRequestTab extends Tab {
     run(name: string): { success: boolean, error: undefined | string };
 }
 ```
 ***
-##Интерфейс Optimization:
+## Интерфейс Optimization:
 ```ts
 interface Optimization {
     optimizationRequestsTab(): OptimizationRequestTab
 }
 ```
 ***
-##Интерфейс SqlQueryResult:
+## Интерфейс SqlQueryResult:
 ```ts
 interface SqlQueryResult {
     count(): number;
@@ -850,21 +850,21 @@ interface SqlQueryResult {
 }
 ```
 ***
-##Интерфейс SqlQueryBuilder:
+## Интерфейс SqlQueryBuilder:
 ```ts
 interface SqlQueryBuilder {
     execute(sql: string, bindings?: object): SqlQueryResult;
 }
 ```
 ***
-##Интерфейс SqlConnection:
+## Интерфейс SqlConnection:
 ```ts
 interface SqlConnection {
     qb(): SqlQueryBuilder;
 }
 ```
 ***
-##Интерфейс SqlConnectorBuilder:
+## Интерфейс SqlConnectorBuilder:
 ```ts
 interface SqlConnectorBuilder {
     setHost(value: string): this;
@@ -886,7 +886,7 @@ interface SqlConnectorBuilder {
 }
 ```
 ***
-##Интерфейс SqlBulkCopyResult:
+## Интерфейс SqlBulkCopyResult:
 ```ts
 interface SqlBulkCopyResult {
     hasErrors(): boolean;
@@ -899,7 +899,7 @@ interface SqlBulkCopyResult {
 }
 ```
 ***
-##Интерфейс SqlBulkCopyBuilder:
+## Интерфейс SqlBulkCopyBuilder:
 ```ts
 interface SqlBulkCopyBuilder {
     /**
@@ -1464,7 +1464,7 @@ declare namespace Http {
 }
 ```
 ***
-##Интерфейс Connectors:
+## Интерфейс Connectors:
 ```ts
 interface Connectors {
     mysql(): SqlConnectorBuilder;
@@ -1481,7 +1481,7 @@ interface Connectors {
 }
 ```
 ***
-##Интерфейс OM:
+## Интерфейс OM:
 ```ts
 interface OM {
     readonly common: Common;
