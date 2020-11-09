@@ -1094,7 +1094,7 @@ interface SqlBulkCopyBuilder {
 }
 ```
 ***
-##Mongodb и его интерфейсы:
+## Mongodb и его интерфейсы:
 ```ts
 declare namespace Mongodb {
 
@@ -1217,7 +1217,7 @@ declare namespace Mongodb {
 
 ```
 ***
-##Http и его интерфейсы:
+## Http и его интерфейсы:
 ```ts
 declare namespace Http {
 
