@@ -208,6 +208,20 @@ interface Pivot {
     addDependentContext(identifier: number): Pivot
 }
 ```
+
+Интерфейс скриптов не позволяет перекручивать пивотку принимает строку с названием вьюхи, которую мы выкручиваем как нам
+ необходимо. Если в передаётся null, то получим дефолтное отображение мультикуба.
+ 
+create - загружает сам грид переданного представления мультикуба
+
+withoutValues - загружает представление мультикуба без данных
+
+rowsFilter - аналог Hide Show, если мы хотим показать на гриде только одну строку или настроенный нами набор строк.
+
+columnsFilter - аналогично с rowsFilter, но только для колонок
+
+addDependentContext - передача контекста
+
 ***
 ## Интерфейс NumericElementsCreator:
 ```ts
@@ -284,6 +298,8 @@ interface Environment {
     set(name: string, value: number | string | null): Environment;
 }
 ```
+
+load() Принимает имя в виде строки
 ***
 ## Интерфейс CubeCell:
 ```ts
@@ -378,6 +394,9 @@ interface MulticubesTab extends Tab {
     open(name: string): MulticubeTab;
 }
 ```
+обращение типа: `om.multicubes.multicubesTab()` будет равносильна открытию таб Multicubes, где multicubesTab это минитаб 
+Table в интерфейсной, части приложения. А обращение к методу `open()` с переданным строковым значением содержащим имя 
+мультикуба в модели, будет равносильно открытому мультикубу с данным именем (открытый таб без грида).
 ***
 ## Интерфейс Multicubes:
 ```ts
@@ -385,6 +404,8 @@ interface Multicubes {
     multicubesTab(): MulticubesTab;
 }
 ```
+`om.multicubes` Аналогично открытию табы Multicubes в интерфейсной части приложения, но без открытых мини табов.
+
 ***
 ## Интерфейс Times:
 ```ts
@@ -403,6 +424,10 @@ interface VersionsTab {
     copyVersion(from: string, to: string): any;
 }
 ```
+`om.versions.versionsTab` Аналогично открытию табы Version - Table в интерфейсной части приложения
+copyVersion - использование функционала копирования версий, принимает в качестве первого аргумента имя версии, которую
+ копируем. В качестве второго аргумента имя версии в которую копируем.
+
 ***
 ## Интерфейс Versions:
 ```ts
@@ -410,6 +435,8 @@ interface Versions {
     versionsTab(): VersionsTab
 }
 ```
+`om.versions` Аналогично открытию табы Version в интерфейсной части приложения, но без открытых мини табов.
+`om.versions.versionsTab` Аналогично открытию табы Version - Table в интерфейсной части приложения
 ***
 ## Интерфейс CSVParams:
 ```ts
@@ -490,6 +517,8 @@ interface ListSubsetsTab extends Tab {
     listTab(): ListTab;
 }
 ```
+`om.lists.ListSubsetsTab.listsTab.open()` Аналогично открытию справочника на минитабе Subsets. open() в качестве 
+аргумента принимает строку с именем справочника, который мы хоти открыть.
 ***
 ## Интерфейс ListsTab:
 ```ts
@@ -497,6 +526,8 @@ interface ListsTab extends Tab {
     open(name: string): ListTab;
 }
 ```
+`om.lists.listsTab.open()` Аналогично функционалу Open (открытию справочника) выбранного в гриде Lists - Table в 
+интерфейсной части приложения. В качестве аргумента принимает строку с именем справочника, который мы хоти открыть.
 ***
 ## Интерфейс Lists:
 ```ts
@@ -504,6 +535,10 @@ interface Lists {
     listsTab(): ListsTab
 }
 ```
+`om.lists` Аналогично открытию табы Lists в интерфейсной части приложения, но без открытых мини 
+табов.
+`om.lists.listsTab` Аналогично открытию табы Lists - Table в интерфейсной части 
+приложения.
 ***
 ## Интерфейс CellBuffer:
 ```ts
@@ -821,6 +856,8 @@ interface OptimizationRequestTab extends Tab {
     run(name: string): { success: boolean, error: undefined | string };
 }
 ```
+`om.optimization.optimizationRequestsTab.run()` Аналогично функционалу запуска Отпимизационного запроса в интерфейсной 
+части приложения. run в качестве аргумента принимает строку с именем Отпимизационного запроса
 ***
 ## Интерфейс Optimization:
 ```ts
@@ -828,6 +865,11 @@ interface Optimization {
     optimizationRequestsTab(): OptimizationRequestTab
 }
 ```
+`om.optimization` Аналогично открытию табы Optimizer Request в интерфейсной части приложения, но без открытых мини 
+табов.
+`om.optimization.optimizationRequestsTab` Аналогично открытию табы Optimizer Request - Table в интерфейсной части 
+приложения.
+
 ***
 ## Интерфейс SqlQueryResult:
 ```ts
