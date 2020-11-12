@@ -117,16 +117,14 @@ interface GridRange {
 ***
 ## Интерфейс GridDimension:
 ```ts
-interface GridDimension
-{
+interface GridDimension {
     getDimensionEntity(): EntityInfo;
 }
 ```
 ***
 ## Интерфейс GridDefinitionInfo:
 ```ts
-interface GridDefinitionInfo
-{
+interface GridDefinitionInfo {
     getPageSelectors(): GridPageSelector[];
 
     getRowDimensions(): GridDimension[];
@@ -210,7 +208,7 @@ interface Pivot {
 ```
 
 Интерфейс скриптов не позволяет перекручивать пивотку принимает строку с названием вьюхи, которую мы выкручиваем как нам
- необходимо. Если в передаётся null, то получим дефолтное отображение мультикуба.
+ необходимо. Если передаётся null, то получим дефолтное отображение мультикуба.
  
 create - загружает сам грид переданного представления мультикуба
 
@@ -303,7 +301,7 @@ load() Принимает имя в виде строки
 ***
 ## Интерфейс CubeCell:
 ```ts
-interface CubeCell{
+interface CubeCell {
     definitions(): number[];
 
     getDimensionIds(): number[];
@@ -316,7 +314,7 @@ interface CubeCell{
 ***
 ## Интерфейс CubeCellSelector:
 ```ts
-interface CubeCellSelector{
+interface CubeCellSelector {
     getCubeInfo(): CubeInfo;
 
     getCubeIdentifier(): number;
@@ -1139,7 +1137,6 @@ interface SqlBulkCopyBuilder {
 ## Mongodb и его интерфейсы:
 ```ts
 declare namespace Mongodb {
-
     interface CollectionCreator {
         /**
          * https://docs.mongodb.com/manual/reference/method/db.createCollection
@@ -1262,7 +1259,6 @@ declare namespace Mongodb {
 ## Http и его интерфейсы:
 ```ts
 declare namespace Http {
-
     interface Params {
         getAll(): object;
 
