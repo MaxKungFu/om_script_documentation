@@ -130,7 +130,7 @@ class GetCurs {
 
     // получение данных курса по одному дню
     getDataByDay() {
-        //Получаем доступ в API requestBuilder
+        // Получаем доступ в API requestBuilder
         const reqBuilder = om.connectors.http().requestBuilder()
 
         // Устанавливаем параметр 'date_req': ENV.PARAMS.START_DATE
@@ -201,7 +201,7 @@ class GetCurs {
         this._checkResponse(usdResponse)
         this._checkResponse(eurResponse)
 
-        // создаём переменную usdXml и помещаем в неё результат response.getStringData() возвращающий результат запроса,
+        // Создаём переменную usdXml и помещаем в неё результат response.getStringData() возвращающий результат запроса,
         // в текстовом виде для долларов и для евро в eurXml
         const usdXml = usdResponse.getStringData()
         const eurXml = eurResponse.getStringData()
@@ -211,12 +211,12 @@ class GetCurs {
             throw new Error("Response not valid xml")
         }
 
-        // создание переменных сожержащие РЕГУЛЯРНЫЕ ВЫРАЖЕНИЯ
+        // Создание переменных сожержащие РЕГУЛЯРНЫЕ ВЫРАЖЕНИЯ
         const regex1 = /Date="(.+?)"/g
         const regex2 = /<Value>(.+?)<\/Value>/g
 
-        // Получаем массив объектов со свойствами наименований валют и курсов валют, отсеивая все валюты кроме долларо
-        // в и евро где каждый элемент массива, соответствую дате и курсам по двум валютам
+        // Получаем массив объектов со свойствами наименований валют и курсов валют, отсеивая все валюты кроме долларов
+        // и евро, где каждый элемент массива, соответствую дате и курсам по двум валютам.
         const dates = this.getArray(regex1, String(usdXml))
         const usdValues = this.getArray(regex2, String(usdXml))
         const eurValues = this.getArray(regex2, String(eurXml))
@@ -232,7 +232,7 @@ class GetCurs {
             currencies.push(obj)
         })
 
-        // Выдаём ошибку если ничего не попало в массив курсов
+        // Выдаём ошибку, если ничего не попало в массив курсов
         if (!currencies.length) {
             throw new Error("Currencies is empty")
         }
@@ -265,10 +265,10 @@ class GetCurs {
         }
     }
 
-    // метод позвращает индекс строки в гриде если имеется строка с переданной в него датой, в случае если не имеется
+    // метод позвращает индекс строки в гриде, если имеется строка с переданной в него датой. В случае, если не имеется
     // вернёт -1, который мы будем обрабатывать как ошибку, что грид не имеет указанного в дате диапазона. В частности
-    // что грид "4script_Импорт обменных курсов" имеет строку, в которой записана дата переданная сюда в качесте
-    // второго аргумента date
+    // проверяем, что грид "4script_Импорт обменных курсов" имеет строку, в которой записана дата переданная сюда в 
+    // качестве второго аргумента date
     _getRowIndex(chunk, date) {
         return chunk.rows().all().findIndex((row, index) => {
             const label = row.first().label()
@@ -284,7 +284,7 @@ class GetCurs {
         })
     }
 
-    // метод проверяющий, в ответе на наш запрос нет ошибок
+    // метод проверяющий, нет ли ошибок в ответе на наш запрос
     _checkResponse(response) {
         if (!response.isOk()) {
             throw new Error(response.getErrors() ? `Error: ${response.getErrors().getMessage()}` : `Status code: ${response.getStatusCode()}`)
